@@ -25,6 +25,19 @@ public class StudentManager {
         em.flush();
 	}
 	
+	public void update(Student student, String firstName, String lastName, Long indexNumber) {
+		student = em.find(Student.class, student.getId());
+		student.setFirstName(firstName);
+		student.setLastName(lastName);
+		student.setIndexNumber(indexNumber);
+		em.merge(student);
+	}
+	
+    public void delete(Long id) {
+    	Student student = em.find(Student.class, id);
+        em.remove(student);
+    }
+    
 	@SuppressWarnings("unchecked")
 	public List<Student> getAllStudents() {
 		return em.createNamedQuery("student.all").getResultList();

@@ -26,7 +26,7 @@
 									    tr.append("<td>"+dane[i].lastName+"</td>");
 									    tr.append("<td>"+dane[i].indexNumber+"</td>");
 									    td = $('<td/>');
-									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Preview </a> ");
+									    td.append("<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edit</a> ");
 									    tr.append(td);
 									    $(table).append(tr);
 								}

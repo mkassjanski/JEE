@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -28,7 +29,8 @@ public class StudentResource {
     public List<Student> showAll() {
     	 return sm.getAllStudents();
     }
-
+    
+    
     @GET
     @Path("/preview/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -55,5 +57,20 @@ public class StudentResource {
 
         return student;
     }
+    @PUT
+    @Path("{/edit/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Student edit(
+            @PathParam("id") Long id,
+            @FormParam("firstName") String firstName,
+            @FormParam("lastName") String lastName,
+            @FormParam("indexNumber") Long indexNumber) {
 
+    	Student student = new Student();
+
+    	student = sm.get(id);
+    	sm.update(student, firstName, lastName, indexNumber);
+
+            return student;
+    }
 }

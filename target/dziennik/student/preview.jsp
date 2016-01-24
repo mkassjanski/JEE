@@ -14,10 +14,10 @@
 					{
 						url: '${pageContext.request.contextPath}/api/student/preview/${StudentID}',
 						type: 'GET',
-						success: function(s) { 
-										document.getElementById('firstName').innerHTML = s.firstName;
-										document.getElementById('lastName').innerHTML = s.lastName;
-										document.getElementById('indexNumber').innerHTML = s.indexNumber;
+						success: function(data) { 
+										document.getElementById('firstName').innerHTML = data.firstName;
+										document.getElementById('lastName').innerHTML = data.lastName;
+										document.getElementById('indexNumber').innerHTML = data.indexNumber;
 									}
 					}	
 				);
