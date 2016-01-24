@@ -11,19 +11,19 @@ import javax.persistence.NamedQuery;
 public class Student {
 
 	private Long id;
-	private String FirstName;
-	private String LastName;
-	private Long IndexNumber;
+	private String firstName;
+	private String lastName;
+	private Long indexNumber;
 	
 	
 	public Student(){
 		
 	}
 	
-	public Student(String FirstName, String LastName, Long IndexNumber ){
-		this.FirstName = FirstName;
-		this.LastName = LastName;
-		this.IndexNumber = IndexNumber;
+	public Student(String firstName, String lastName, Long indexNumber ){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.indexNumber = indexNumber;
 	}
 	
 	@Id
@@ -35,22 +35,22 @@ public class Student {
 		this.id = id;
 	}
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		this.firstName = firstName;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 	public Long getIndexNumber() {
-		return IndexNumber;
+		return indexNumber;
 	}
 	public void setIndexNumber(Long indexNumber) {
-		IndexNumber = indexNumber;
+		this.indexNumber = indexNumber;
 	}
 	
 }

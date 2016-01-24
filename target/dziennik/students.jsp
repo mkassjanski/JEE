@@ -26,8 +26,7 @@
 									    tr.append("<td>"+dane[i].lastName+"</td>");
 									    tr.append("<td>"+dane[i].indexNumber+"</td>");
 									    td = $('<td/>');
-									    td.append(
-"<a href='google.pl' class='btn btn-xs btn-warning' role='button'> Podgląd </a> ");
+									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Preview </a> ");
 									    tr.append(td);
 									    $(table).append(tr);
 								}
@@ -50,6 +49,34 @@
 					);
 				}
 	</script>
+	
+		<script>
+		$(document).ready(function()
+			{
+				$( "#add" ).on('click', function(e)
+					{	
+						e.preventDefault();
+						$.ajax
+						(
+						{
+						    url: '${pageContext.request.contextPath}/api/student/add',
+						    type: 'POST',
+						    data:
+							{
+						    	firstName: document.getElementById('firstName').value,
+						    	lastName: document.getElementById('lastName').value,
+						    	indexNumber: document.getElementById('indexNumber').value
+								
+							},
+							success: function() { document.location.reload(true);},
+ 						    error: function() { alert("Nieprawidłowo wprowadzono dane!"); }
+						}		
+						);
+					}
+				);
+			}
+		);
+	</script>
 </head>
 
 <body>
@@ -58,9 +85,6 @@
 <div class="container">
     <div class="row">
         <h1 class="text-center">Students</h1>
-        <div>
-        	<a href="${pageContext.request.contextPath}/AddStudent" class="btn btn-success" role="button">Dodaj</a>
-         </div>
         <br/>
 
         <table id="tabela" class="table table-striped">
@@ -73,6 +97,41 @@
 	</table>
     </div>
 
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Add student</h1>
+
+        	<form action="${pageContext.request.contextPath}/api/student/add" data-toggle="validator" method="post" class="form-horizontal">
+		        <div class="form-group">
+		            <label for="firstName" class="col-sm-2 control-label">First Name:</label>
+
+		            <div class="col-sm-10">
+		                <input type="text" name="firstName" id="firstName" class="form-control" data-minlength="2" required>
+		            </div>
+		        </div>
+
+		        <div class="form-group">
+		            <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
+
+		            <div class="col-sm-10">
+		                <input type="text" name="lastName" id="lastName" class="form-control" data-minlength="2" required>
+		            </div>
+		        </div>
+
+		        <div class="form-group">
+		            <label for="indexNumber" class="col-sm-2 control-label">Index Number:</label>
+
+		            <div class="col-sm-10">
+		                <input type="text" name="indexNumber" id="indexNumber" class="form-control" data-minlength="2" required>
+		            </div>
+		        </div>
+		        <div class="form-group text-center">
+		                <button id=add type="submit" class="btn btn-success">Add</button>
+				<a href="${pageContext.request.contextPath}/students.jsp" class="btn btn-default" role="button">Back</a>
+		 	    </div>
+		        </div>
+            	</form>
  <jsp:include page="include/footer.jsp" />
 </div>
 

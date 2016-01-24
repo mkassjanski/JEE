@@ -19,9 +19,9 @@
 						    type: 'POST',
 						    data:
 							{
-						    	FirstName: document.getElementById('FirstName').value,
-						    	LastName: document.getElementById('LastName').value,
-						    	IndexNumber: document.getElementById('IndexNumber').value
+						    	firstName: document.getElementById('firstName').value,
+						    	lastName: document.getElementById('lastName').value,
+						    	indexNumber: document.getElementById('indexNumber').value
 								
 							},
 						    success: function() { document.location.replace("${pageContext.request.contextPath}/Students"); },
@@ -43,26 +43,26 @@
 
         	<form action="${pageContext.request.contextPath}/api/student/add" data-toggle="validator" method="post" class="form-horizontal">
 		        <div class="form-group">
-		            <label for="FirstName" class="col-sm-2 control-label">First Name:</label>
+		            <label for="firstName" class="col-sm-2 control-label">First Name:</label>
 
 		            <div class="col-sm-10">
-		                <input type="text" name="FirstName" id="FirstName" class="form-control" data-minlength="2" required>
+		                <input type="text" name="firstName" id="firstName" class="form-control" data-minlength="2" required>
 		            </div>
 		        </div>
 
 		        <div class="form-group">
-		            <label for="LastName" class="col-sm-2 control-label">Last Name:</label>
+		            <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
 
 		            <div class="col-sm-10">
-		                <input type="text" name="LastName" id="LastName" class="form-control" data-minlength="2" required>
+		                <input type="text" name="lastName" id="lastName" class="form-control" data-minlength="2" required>
 		            </div>
 		        </div>
 
 		        <div class="form-group">
-		            <label for="IndexNumber" class="col-sm-2 control-label">Index Number:</label>
+		            <label for="indexNumber" class="col-sm-2 control-label">Index Number:</label>
 
 		            <div class="col-sm-10">
-		                <input type="text" name="IndexNumber" id="IndexNumber" class="form-control" data-minlength="2" required>
+		                <input type="text" name="indexNumber" id="indexNumber" class="form-control" data-minlength="2" required>
 		            </div>
 		        </div>
 		        <div class="form-group text-center">

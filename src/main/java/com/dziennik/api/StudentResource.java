@@ -8,6 +8,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -28,20 +29,27 @@ public class StudentResource {
     	 return sm.getAllStudents();
     }
 
+    @GET
+    @Path("/preview/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Student preview(@PathParam("id") long id) {
+    	 return sm.get(id);
+    }
+    
     @POST
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
     public Student add(
-            @FormParam("FirstName") String FirstName,
-            @FormParam("LastName") String LastName,
-            @FormParam("IndexNumber") Long IndexNumber)
+            @FormParam("firstName") String firstName,
+            @FormParam("lastName") String lastName,
+            @FormParam("indexNumber") Long indexNumber)
     {
 
     	Student student = new Student();
 
-    	student.setFirstName(FirstName);
-    	student.setLastName(LastName);
-    	student.setIndexNumber(IndexNumber);
+    	student.setFirstName(firstName);
+    	student.setLastName(lastName);
+    	student.setIndexNumber(indexNumber);
 
         sm.add(student);
 
