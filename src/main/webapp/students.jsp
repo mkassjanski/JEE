@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <jsp:include page="include/head.jsp" />
 	<jsp:include page="include/scripts.jsp" />
@@ -26,7 +26,7 @@
 									    tr.append("<td>"+dane[i].lastName+"</td>");
 									    tr.append("<td>"+dane[i].indexNumber+"</td>");
 									    td = $('<td/>');
-									    td.append("<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edit</a> ");
+									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Preview </a> "+ "<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edit</a> ");
 									    tr.append(td);
 									    $(table).append(tr);
 								}
@@ -127,7 +127,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group text-center">
-		                <button id=add type="submit" class="btn btn-success">Add</button>
+		                <button id='add' type="submit" class="btn btn-success">Add</button>
 				<a href="${pageContext.request.contextPath}/students.jsp" class="btn btn-default" role="button">Back</a>
 		 	    </div>
 		        </div>

@@ -2,16 +2,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     	<jsp:include page="../include/head.jsp" />
 	<jsp:include page="../include/scripts.jsp" />
 	<script>
 		$(document).ready(function()
 			{
-				$( "#edit" ).on('click', function(e)
+				$( "#edit" ).on('click', function(k)
 					{	
-						e.preventDefault();
+						k.preventDefault();
 						$.ajax
 						(
 						{
@@ -19,7 +19,7 @@
 						    type: 'PUT',
 						    data:
 							{
-						    	firstName: document.getElSementById('firstName').value,
+						    	firstName: document.getElementById('firstName').value,
 						    	lastName: document.getElementById('lastName').value,
 						    	indexNumber: document.getElementById('indexNumber').value
 								

@@ -57,8 +57,8 @@ public class StudentResource {
 
         return student;
     }
-    @PUT
-    @Path("{/edit/{id}")
+@PUT
+    @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Student edit(
             @PathParam("id") Long id,
@@ -71,6 +71,6 @@ public class StudentResource {
     	student = sm.get(id);
     	sm.update(student, firstName, lastName, indexNumber);
 
-            return student;
+        return student;
     }
 }
