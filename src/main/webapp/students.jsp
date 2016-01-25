@@ -26,7 +26,8 @@
 									    tr.append("<td>"+dane[i].lastName+"</td>");
 									    tr.append("<td>"+dane[i].indexNumber+"</td>");
 									    td = $('<td/>');
-									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Preview </a> "+ "<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edit</a> ");
+									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Preview </a> "+ "<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edit</a> "
+									    		+"<button id="+dane[i].id+" onClick='del("+dane[i].id+")' type='submit' class='btn btn-xs btn-danger'>Delete</button>");
 									    tr.append(td);
 									    $(table).append(tr);
 								}
@@ -37,7 +38,7 @@
 			);
 	</script>
 	<script>
-		function usun(id)
+		function del(id)
 				{	
 					$.ajax
 					(

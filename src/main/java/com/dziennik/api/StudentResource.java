@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -57,7 +58,7 @@ public class StudentResource {
 
         return student;
     }
-@PUT
+    @PUT
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Student edit(
@@ -73,4 +74,13 @@ public class StudentResource {
 
         return student;
     }
+
+@DELETE
+@Path("/delete/{id}")
+@Produces(MediaType.APPLICATION_JSON)
+public void usun(@PathParam("id") long id)
+{
+		sm.delete(id);
+}
+
 }

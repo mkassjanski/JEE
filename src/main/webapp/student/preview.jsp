@@ -27,7 +27,7 @@
 	<script>
 		$(document).ready(function()
 			{
-				$( "#usun" ).on('click', function(e)
+				$( "#delete" ).on('click', function(e)
 					{	
 						e.preventDefault();
 						$.ajax
@@ -60,8 +60,8 @@
         <label>Index Number:</label>
         <div id = "indexNumber" class="well well-sm"></div>
 	<div class="form-group text-center">
-		                <a href="${pageContext.request.contextPath}/EdytujStudent/${studentID}" class="btn btn-primary" role="button">Edit</a>
-		                <button id="usun" type="submit" class="btn btn-danger">Delete</button>
+		                <a href="${pageContext.request.contextPath}/StudentEdit/${StudentID}" class="btn btn-primary" role="button">Edit</a>
+		                <button id="delete" type="submit" class="btn btn-danger">Delete</button>
 				<a href="${pageContext.request.contextPath}/Students" class="btn btn-default" role="button">Back</a>
     	</div>
     </div>
