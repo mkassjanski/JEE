@@ -1,10 +1,18 @@
 package com.dziennik.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NamedQuery(name = "student.all", query = "Select s from Student s order by s.id")
@@ -14,7 +22,6 @@ public class Student {
 	private String firstName;
 	private String lastName;
 	private Long indexNumber;
-	
 	
 	public Student(){
 		
@@ -52,5 +59,13 @@ public class Student {
 	public void setIndexNumber(Long indexNumber) {
 		this.indexNumber = indexNumber;
 	}
-	
+	private List<Mark> marks = new ArrayList<Mark>();
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	public List<Mark> getMark() {
+	return marks;
+	}
+	public void setMark(List<Mark> marks) {
+	this.marks = marks;
+	}
 }
