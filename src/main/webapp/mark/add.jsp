@@ -47,7 +47,7 @@
 				<div class="col-sm-10">
 				         <select type="text" name="student" id="student" class="form-control" >
 				     		<c:forEach var="studentFK" items="${AllStudents}" varStatus="loopCounter">
-						    	<option value="${studentFK.id}">${studentFK.getLastName()}</option>
+						    	<option value="${studentFK.id}">${studentFK.getFirstName()} ${studentFK.getLastName()} [${studentFK.getIndexNumber()}]</option>
 					    	</c:forEach>
 					</select>
 				</div>

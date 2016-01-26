@@ -1,4 +1,4 @@
-package com.dziennik.web;
+/*package com.dziennik.web;
 
 import java.io.IOException;
 
@@ -16,3 +16,4 @@ public class ShowMarkServlet extends HttpServlet {
         request.getRequestDispatcher("/marks.jsp").forward(request, response);
     }
 }
+*/

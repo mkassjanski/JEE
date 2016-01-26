@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import com.dziennik.service.StudentManager;
 
-@WebServlet(urlPatterns = "/AddMark")
+@WebServlet(urlPatterns = "/Marks")
 public class AddMarkServlet extends HttpServlet{
     @EJB
     private StudentManager sm;
@@ -18,6 +18,6 @@ public class AddMarkServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("AllStudents", sm.getAllStudents());
-        request.getRequestDispatcher("/mark/add.jsp").forward(request, response);
+        request.getRequestDispatcher("/marks.jsp").forward(request, response);
     }
 }
