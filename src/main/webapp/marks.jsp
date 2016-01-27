@@ -38,6 +38,23 @@
 				}
 			);
 	</script>
+<!-- 	<script>
+	$(document).ready(function(){
+		$( "#dele" ).on('click', function() {
+       var idk = $(this).data('idk');
+       alert("idk");
+       $.ajax
+		(
+			{
+				url: '${pageContext.request.contextPath}/api/mark/delete/'+idk,
+				type: 'DELETE',
+				success: function() { document.location.reload(true);}
+			}	
+		);
+    });
+});
+	</script>
+ -->
 	<script>
 		$(document).ready(function()
 			{

@@ -27,8 +27,8 @@
 									    tr.append("<td>"+dane[i].indexNumber+"</td>");
 									    td = $('<td/>');
 									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='DelButton' role='button'> Preview </a> "+ "<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='DelButton' role='button'>Edit</a> "
-									    		+"<button id="+dane[i].id+" onClick='del("+dane[i].id+")' type='submit' class='DelButton'>Delete</button>");
-									    tr.append(td);
+ +"<a href='${pageContext.request.contextPath}/StudentDelete/"+dane[i].id+"' class='DelButton' role='button'> Delete </a> ");
+								    tr.append(td);
 									    $(table).append(tr);
 								}
 							}
@@ -37,19 +37,7 @@
 				}
 			);
 	</script>
-	<script>
-		function del(id)
-				{	
-					$.ajax
-					(
-						{
-							url: '${pageContext.request.contextPath}/api/student/delete/'+id,
-							type: 'DELETE',
-							success: function() { document.location.reload(true);}
-						}	
-					);
-				}
-	</script>
+	
 	
 		<script>
 		$(document).ready(function()
