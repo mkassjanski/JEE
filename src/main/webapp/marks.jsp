@@ -28,7 +28,7 @@
 									    td.append(
 "<a href='${pageContext.request.contextPath}/MarkPreview/"+dane[i].id+"' class='DelButton' role='button'>Preview</a> "+
 "<a href='${pageContext.request.contextPath}/MarkEdit/"+dane[i].id+"' class='DelButton' role='button'>Edit</a> "+
-"<button id="+dane[i].id+" onClick='del("+dane[i].id+")' type='submit' class='DelButton'>Delete</button>");
+"<a href='${pageContext.request.contextPath}/MarkDelete/"+dane[i].id+"' class='DelButton' role='button'>Delete</a> ");
 									    tr.append(td);
 									    $(table).append(tr);
 								}
@@ -41,7 +41,7 @@
 <!-- 	<script>
 	$(document).ready(function(){
 		$( "#dele" ).on('click', function() {
-       var idk = $(this).data('idk');
+       var idk = $(this).data('idk'); < t
        alert("idk");
        $.ajax
 		(
