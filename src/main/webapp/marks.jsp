@@ -114,7 +114,7 @@
 
 		        <div>
 		            	<label for="mark">Mark:</label>
-		                <input type="text" name="mark" id="mark">
+		                <input type="text" name="mark" id="mark"  placeholder="3.0" >
 		        </div>
 
 		        <div>

@@ -54,8 +54,8 @@
 				</div>
 		        </div>
 
-		        <div class="form-group">
-		            	<label for="mark" class="col-sm-2 control-label" >Mark:</label>
+		        <div>
+		            	<label for="mark" >Mark:</label>
 
 		            	<div class="col-sm-10">
 		                	<input type="text" name="mark" id="mark" class="form-control">

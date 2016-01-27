@@ -49,10 +49,10 @@
 				     		<c:forEach var="studentFK" items="${StudentID}" varStatus="loopCounter">
 						<c:choose>
 						    <c:when test="${studentFK.id == MarkID.getStudent().getId()}">
-						    	<option value="${studentFK.id}" selected="selected">${studentFK.getLastName()}</option>
+						    	<option value="${studentFK.id}" selected="selected">${studentFK.getFirstName()} ${studentFK.getLastName()} ${studentFK.getIndexNumber()}]</option>
 						    </c:when>
 						    <c:otherwise>
-							<option value="${studentFK.id}">${studentFK.lastName}</option>
+							<option value="${studentFK.id}">${studentFK.getFirstName()} ${studentFK.getLastName()} [${studentFK.getIndexNumber()}]</option>
 							<br />
 						    </c:otherwise>
 						</c:choose>
