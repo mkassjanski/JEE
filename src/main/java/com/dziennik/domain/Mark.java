@@ -13,14 +13,17 @@ public class Mark {
  	private Student student;
 	private Double mark;
 	private String subject;
+    @Temporal(TemporalType.DATE)
+    private Date createdAt;
     
     public Mark() {
    	}
     
-    public Mark(Student student, Double mark, String subject ) {
+    public Mark(Student student, Double mark, String subject, Date createdAt) {
     	this.student=student;
     	this.mark=mark;
     	this.subject=subject;
+    	this.createdAt=createdAt;
     }
 
     
@@ -58,6 +61,14 @@ public class Mark {
 
 	public void setSubject(String subject) {
 		this.subject = subject;
+	}
+	@Temporal(TemporalType.DATE)
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
     

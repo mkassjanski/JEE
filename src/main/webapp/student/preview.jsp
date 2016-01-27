@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    	<jsp:include page="../include/head.jsp" />
+    <jsp:include page="../include/head.jsp" />
 	<jsp:include page="../include/scripts.jsp" />
 	<script>
 		$(document).ready(function()
@@ -46,23 +46,25 @@
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
+<jsp:include page="../include/nav.jsp" />
+
+<div>
+    <div>
         <h1 class="text-center">Student</h1>
         <br/>
 
         <label>First Name:</label>
-        <div id = "firstName" class="well well-sm"></div>
+        <div id = "firstName"></div>
 
         <label>Last Name:</label>
-        <div id = "lastName" class="well well-sm"></div>
+        <div id = "lastName"></div>
 
         <label>Index Number:</label>
-        <div id = "indexNumber" class="well well-sm"></div>
-	<div class="form-group text-center">
-		                <a href="${pageContext.request.contextPath}/StudentEdit/${StudentID}" class="btn btn-primary" role="button">Edit</a>
-		                <button id="delete" type="submit" class="btn btn-danger">Delete</button>
-				<a href="${pageContext.request.contextPath}/Students" class="btn btn-default" role="button">Back</a>
+        <div id = "indexNumber"></div>
+			    <div>
+               	<a href="${pageContext.request.contextPath}/StudentEdit/${StudentID}" class="DelButton" role="button">Edit</a>
+               	<button id="delete" type="submit" class="DelButton">Delete</button>
+				<a href="${pageContext.request.contextPath}/Students" class="DelButton" role="button">Back</a>
     	</div>
     </div>
 

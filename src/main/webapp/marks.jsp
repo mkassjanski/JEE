@@ -2,9 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-    	<jsp:include page="include/head.jsp" />
+    <jsp:include page="include/head.jsp" />
 	<jsp:include page="include/scripts.jsp" />
 	<script>
 		$(document).ready(function()
@@ -17,7 +17,7 @@
 							success: function(dane)
 							{ 
 								var d = dane.length;
-								var table = document.getElementById("tabela");
+								var table = document.getElementById("table");
 								for (var i = 0; i < d; i++)
 								{
 									    tr = $('<tr/>');
@@ -26,7 +26,9 @@
 									    tr.append("<td>"+dane[i].subject+"</td>");
 									    td = $('<td/>');
 									    td.append(
-"<a href='${pageContext.request.contextPath}/PrviewMark/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Podgląd </a> ");
+"<a href='${pageContext.request.contextPath}/MarkPreview/"+dane[i].id+"' class='DelButton' role='button'>Preview</a> "+
+"<a href='${pageContext.request.contextPath}/MarkEdit/"+dane[i].id+"' class='DelButton' role='button'>Edit</a> "+
+"<button id="+dane[i].id+" onClick='del("+dane[i].id+")' type='submit' class='DelButton'>Delete</button>");
 									    tr.append(td);
 									    $(table).append(tr);
 								}
@@ -64,7 +66,7 @@
 		);
 	</script>
 	<script>
-		function usun(id)
+		function del(id)
 				{	
 					$.ajax
 					(
@@ -79,58 +81,48 @@
 </head>
 
 <body>
-
-<div class="container">
-    <div class="row">
-        <h1 class="text-center">Marks</h1>
-        <div>
-        	<a href="${pageContext.request.contextPath}/AddMark" class="btn btn-success" role="button">Dodaj</a>
-         </div>
+<jsp:include page="include/nav.jsp" />
+<div >
+    <div>
+        <h1>Marks</h1>
         <br/>
 
-        <table id="tabela" class="table table-striped">
+        <table id="table" class="zui-table zui-table-horizontal zui-table-highlight">
+              <thead>
                <tr>
                    <th>Student</th>
                    <th>Mark</th>
                    <th>Subject</th>
                    <th></th>
               </tr>
+              </thead>
 	</table>
     </div>
     
-        <div class="row">
-        <h1 class="text-center">Add mark</h1>
-            	<form  method="post" class="form-horizontal">
+        <div>
+        <h1>Add mark</h1>
+            	<form  method="post">
 
-		        <div class="form-group">
-		         	<label for="student" class="col-sm-2 control-label">Student:</label>
-				<div class="col-sm-10">
-				         <select type="text" name="student" id="student" class="form-control" >
+		        <div>
+		         	<label for="student">Student:</label>
+				         <select type="text" name="student" id="student" >
 				     		<c:forEach var="studentFK" items="${AllStudents}" varStatus="loopCounter">
 						    	<option value="${studentFK.id}">${studentFK.getFirstName()} ${studentFK.getLastName()} [${studentFK.getIndexNumber()}]</option>
 					    	</c:forEach>
 					</select>
-				</div>
 		        </div>
 
-		        <div class="form-group">
-		            	<label for="mark" class="col-sm-2 control-label" >Mark:</label>
-
-		            	<div class="col-sm-10">
-		                	<input type="text" name="mark" id="mark" class="form-control">
-		            	</div>
+		        <div>
+		            	<label for="mark">Mark:</label>
+		                <input type="text" name="mark" id="mark">
 		        </div>
 
-		        <div class="form-group">
-		           	<label for="subject" class="col-sm-2 control-label">Subject:</label>
-
-		            	<div class="col-sm-10">
-		                	<input type="text" name="subject" id="subject" class="form-control"/>
-		            	</div>
+		        <div>
+		           	<label for="subject">Subject:</label>
+		            <input type="text" name="subject" id="subject"/>
 		        </div>
-		        <div class="form-group text-center">
-		                <button id="add" type="submit" class="btn btn-success">Dodaj</button>
-				<a href="${pageContext.request.contextPath}/Marks" class="btn btn-default" role="button">Wróć</a>
+		        <div>
+		            <button id="add" type="submit" class="myButton">Dodaj</button>
 		        </div>
 
             	</form>

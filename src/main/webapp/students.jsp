@@ -26,8 +26,8 @@
 									    tr.append("<td>"+dane[i].lastName+"</td>");
 									    tr.append("<td>"+dane[i].indexNumber+"</td>");
 									    td = $('<td/>');
-									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='btn btn-xs btn-warning' role='button'> Preview </a> "+ "<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edit</a> "
-									    		+"<button id="+dane[i].id+" onClick='del("+dane[i].id+")' type='submit' class='btn btn-xs btn-danger'>Delete</button>");
+									    td.append("<a href='${pageContext.request.contextPath}/StudentPreview/"+dane[i].id+"' class='DelButton' role='button'> Preview </a> "+ "<a href='${pageContext.request.contextPath}/StudentEdit/"+dane[i].id+"' class='DelButton' role='button'>Edit</a> "
+									    		+"<button id="+dane[i].id+" onClick='del("+dane[i].id+")' type='submit' class='DelButton'>Delete</button>");
 									    tr.append(td);
 									    $(table).append(tr);
 								}
@@ -81,61 +81,53 @@
 </head>
 
 <body>
+<jsp:include page="include/nav.jsp" />
 
-
-<div class="container">
-    <div class="row">
-        <h1 class="text-center">Students</h1>
+<div>
+    <div>
+        <h1>Students</h1>
         <br/>
 
-        <table id="tabela" class="table table-striped">
+        <table id="tabela" class="zui-table zui-table-horizontal zui-table-highlight">
+        <thead>
                <tr>
                      <th>First Name</th>
                      <th>Last Name</th>
                      <th>Index Number</th>
                      <th></th>
               </tr>
+              </thead>
 	</table>
     </div>
 
 
-<div class="container">
-    <div class="row">
-        <h1 class="text-center">Add student</h1>
+<div>
+    <div>
+        <h1>Add student</h1>
 
-        	<form action="${pageContext.request.contextPath}/api/student/add" data-toggle="validator" method="post" class="form-horizontal">
-		        <div class="form-group">
-		            <label for="firstName" class="col-sm-2 control-label">First Name:</label>
-
-		            <div class="col-sm-10">
-		                <input type="text" name="firstName" id="firstName" class="form-control" data-minlength="2" required>
-		            </div>
+        	<form action="${pageContext.request.contextPath}/api/student/add" data-toggle="validator" method="post">
+		        <div>
+		            <label for="firstName">First Name:</label>
+		            <input type="text" name="firstName" id="firstName" data-minlength="2" required>
 		        </div>
 
-		        <div class="form-group">
-		            <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
-
-		            <div class="col-sm-10">
-		                <input type="text" name="lastName" id="lastName" class="form-control" data-minlength="2" required>
-		            </div>
+		        <div>
+		            <label for="lastName">Last Name:</label>
+		            <input type="text" name="lastName" id="lastName" data-minlength="2" required>
 		        </div>
 
-		        <div class="form-group">
-		            <label for="indexNumber" class="col-sm-2 control-label">Index Number:</label>
-
-		            <div class="col-sm-10">
-		                <input type="text" name="indexNumber" id="indexNumber" class="form-control" data-minlength="2" required>
-		            </div>
+		        <div>
+		            <label for="indexNumber">Index Number:</label>
+		            <input type="text" name="indexNumber" id="indexNumber" data-minlength="2" required>
+		           
 		        </div>
-		        <div class="form-group text-center">
-		                <button id='add' type="submit" class="btn btn-success">Add</button>
-				<a href="${pageContext.request.contextPath}/students.jsp" class="btn btn-default" role="button">Back</a>
-		 	    </div>
+		        <div>
+		                <button id='add'  class="myButton" type="submit">Add</button>
 		        </div>
             	</form>
- <jsp:include page="include/footer.jsp" />
-</div>
+ 				<jsp:include page="include/footer.jsp" />
+			</div>
 
-<jsp:include page="include/scripts.jsp" />
+		<jsp:include page="include/scripts.jsp" />
 </body>
 </html>

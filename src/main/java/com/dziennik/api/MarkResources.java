@@ -1,5 +1,6 @@
 package com.dziennik.api;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -36,6 +37,13 @@ public class MarkResources {
     }
     
     
+    @GET
+    @Path("/preview/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Mark preview(@PathParam("id") long id) {
+    	 return mm.get(id);
+    }
+    
     @POST
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
@@ -49,9 +57,33 @@ public class MarkResources {
     	markk.setStudent(sm.get(student));
     	markk.setMark(mark);
     	markk.setSubject(subject);
+    	markk.setCreatedAt(new Date());
 
     	mm.add(markk);
 
        return markk;
+    }
+    @PUT
+    @Path("/edit/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Mark edit(
+            @PathParam("id") Long id,
+            @FormParam("student") Long student,
+            @FormParam("mark") Double mark,
+            @FormParam("subject") String subject)
+    {
+    Mark markk = new Mark();
+
+    markk = mm.get(id);
+	mm.edit(markk, sm.get(student), mark, subject);
+	return markk;
+    }
+
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void usun(@PathParam("id") long id)
+    {
+        mm.delete(id);
     }
 }

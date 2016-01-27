@@ -36,6 +36,7 @@
 </head>
 
 <body>
+<jsp:include page="../include/nav.jsp" />
 
 <div class="container">
     <div class="row">

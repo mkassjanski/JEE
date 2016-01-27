@@ -1,1 +1,1 @@
-<% request.getRequestDispatcher("home.jsp").forward(request, response); %>
+<% request.getRequestDispatcher("students.jsp").forward(request, response); %>

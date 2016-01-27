@@ -9,20 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dziennik.service.MarkManager;
 import com.dziennik.service.StudentManager;
 
-@WebServlet(urlPatterns = "/StudentEdit/*")
-public class EditStudentServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/MarkEdit/*")
+public class EditMarkServlet extends HttpServlet {
 	
     @EJB
     private StudentManager sm;
+    @EJB
+    private MarkManager mm;
     
 	  @Override
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//String link = request.getPathInfo();
-	        Long StudentID = WebUtils.getStudentID(request);
-
-	        request.setAttribute("StudentID", sm.get(StudentID));
-	        request.getRequestDispatcher("/student/edit.jsp").forward(request, response);
+	        Long MarkID = WebUtils.getStudentID(request);
+	
+	        request.setAttribute("MarkID", mm.get(MarkID));
+	        request.setAttribute("StudentID", sm.getAllStudents());
+	        request.getRequestDispatcher("/mark/edit.jsp").forward(request, response);
 	    }
 }
